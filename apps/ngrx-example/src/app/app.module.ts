@@ -8,6 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [AppComponent],
   imports: [BrowserModule, BrowserAnimationsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
