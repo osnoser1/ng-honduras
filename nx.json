@@ -17,6 +17,12 @@
     "ngrx-example-e2e": {
       "tags": [],
       "implicitDependencies": ["ngrx-example"]
+    },
+    "posts": {
+      "tags": []
+    },
+    "core": {
+      "tags": []
     }
   }
 }

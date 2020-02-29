@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-content>
+    <h1>Post {{ form.controls.id ? 'Create' : 'Update' }}</h1>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div fxLayout="column">
+        <mat-form-field>
+          <input
+            matInput
+            maxlength="100"
+            placeholder="Title"
+            formControlName="title"
+          />
+        </mat-form-field>
+
+        <ng-honduras-error
+          controlName="title"
+          [messages]="validationMessages.title"
+        ></ng-honduras-error>
+      </div>
+
+      <div fxLayout="column">
+        <mat-form-field>
+          <textarea
+            matInput
+            placeholder="Body"
+            formControlName="body"
+          ></textarea>
+        </mat-form-field>
+
+        <ng-honduras-error
+          controlName="body"
+          [messages]="validationMessages.body"
+        ></ng-honduras-error>
+      </div>
+
+      <button mat-raised-button color="primary">Save</button>
+    </form>
+  </mat-card-content>
+</mat-card>

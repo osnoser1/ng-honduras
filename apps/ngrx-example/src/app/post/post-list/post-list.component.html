@@ -1,0 +1,13 @@
+<mat-card fxFlex fxLayout class="pb-0">
+  <mat-card-content fxLayout="column" fxFlex>
+    <h1>Posts</h1>
+
+    <ng-honduras-post-table-preview
+      fxFlex
+      [data]="data$ | async"
+      [query]="query$ | async"
+      [total]="total$ | async"
+      (queryChange)="onQueryChange($event)"
+    ></ng-honduras-post-table-preview>
+  </mat-card-content>
+</mat-card>

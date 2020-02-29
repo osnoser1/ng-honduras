@@ -18,5 +18,8 @@
     "paths": {},
     "strict": true
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": ["node_modules", "tmp"],
+  "angularCompilerOptions": {
+    "enableIvy": false
+  }
 }
