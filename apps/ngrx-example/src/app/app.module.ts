@@ -55,7 +55,7 @@ const routes: Routes = [
       },
     ),
     EffectsModule.forRoot([RouterEffects]),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    StoreDevtoolsModule.instrument(),
     StoreRouterConnectingModule.forRoot(),
   ],
   providers: [],
