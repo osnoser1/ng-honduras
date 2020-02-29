@@ -23,7 +23,8 @@
             "aot": true,
             "assets": [
               "apps/ngrx-example/src/favicon.ico",
-              "apps/ngrx-example/src/assets"
+              "apps/ngrx-example/src/assets",
+              "apps/ngrx-example/src/_redirects"
             ],
             "styles": ["apps/ngrx-example/src/styles.scss"],
             "scripts": []
