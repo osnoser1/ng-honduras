@@ -12,7 +12,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { EffectsModule } from '@ngrx/effects';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
@@ -45,7 +45,7 @@ const routes: Routes = [
     MatListModule,
     RouterModule.forRoot(routes),
     StoreModule.forRoot(
-      {},
+      { router: routerReducer },
       {
         metaReducers: !environment.production ? [] : [],
         runtimeChecks: {

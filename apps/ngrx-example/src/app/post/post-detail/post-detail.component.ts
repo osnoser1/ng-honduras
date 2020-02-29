@@ -3,14 +3,18 @@ import {
   ChangeDetectorRef,
   Component,
   Input,
+  OnDestroy,
   OnInit,
 } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 import { Post } from '../../core/models/entities';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { PostsPartialState } from '../store/posts.reducer';
 import * as PostsActions from '../store/posts.actions';
+import { Subject } from 'rxjs';
+import { getSelectedPost } from '../store/posts.selectors';
+import { takeUntil } from 'rxjs/operators';
 
 const required = 'This field is required.';
 
@@ -20,9 +24,11 @@ const required = 'This field is required.';
   styleUrls: ['./post-detail.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PostDetailComponent implements OnInit {
+export class PostDetailComponent implements OnInit, OnDestroy {
   form = this.fb.group({});
   validationMessages: Record<string, string | Record<string, string>>;
+
+  private destroy$ = new Subject();
 
   constructor(
     private fb: FormBuilder,
@@ -36,7 +42,15 @@ export class PostDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.map();
+    this.store
+      .pipe(select(getSelectedPost))
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(this.map.bind(this));
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.unsubscribe();
   }
 
   onSubmit() {

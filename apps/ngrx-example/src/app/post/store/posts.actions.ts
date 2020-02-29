@@ -31,3 +31,8 @@ export const savePostSuccess = createAction(
   '[Posts] Save Post Success',
   props<{ post: Post }>(),
 );
+
+export const updatePostDetail = createAction(
+  '[Posts] Update Post Detail',
+  props<{ post: Post }>(),
+);

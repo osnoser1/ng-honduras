@@ -70,6 +70,10 @@ const postsReducer = createReducer(
     ...state,
     postsDetail: postsAdapter.addOne(post, state.postsDetail),
   })),
+  on(PostsActions.updatePostDetail, (state, { post }) => ({
+    ...state,
+    postsDetail: postsAdapter.upsertOne(post, state.postsDetail),
+  })),
 );
 
 export function reducer(state: PostsPartialState | undefined, action: Action) {

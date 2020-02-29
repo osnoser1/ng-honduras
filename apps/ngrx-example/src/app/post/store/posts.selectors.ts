@@ -75,7 +75,7 @@ export const selectSelectedPostId: (
   state: any,
 ) => string | undefined = selectRouteParam('id');
 
-export const selectPost = createSelector(
+export const getSelectedPost = createSelector(
   getPostsDetailEntities,
   selectSelectedPostId,
   (posts, postId) => (postId && posts[postId]) || ({} as Post),

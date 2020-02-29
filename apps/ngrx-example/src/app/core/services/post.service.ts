@@ -22,6 +22,10 @@ export class PostService {
     return this.http.post<Post>(this.apiUrl, { ...post, userId: 1 });
   }
 
+  get(id: number) {
+    return this.http.get<Post>(`${this.apiUrl}/${id}`);
+  }
+
   getAll(query?: PostQuery): Observable<ListResponse<Post>>;
 
   getAll(query?: PostQuery, options?: { observe: 'result' }) {

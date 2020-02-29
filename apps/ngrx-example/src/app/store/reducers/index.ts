@@ -1,5 +1,5 @@
 import * as fromRouter from '@ngrx/router-store';
-import { createFeatureSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 export interface State {
   router: fromRouter.RouterReducerState<any>;
